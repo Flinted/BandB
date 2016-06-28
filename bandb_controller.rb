@@ -8,14 +8,14 @@ get '/booking/new' do
 end
 
 post '/booking' do
-  #create pizza object
   @booking = Booking.new(params)
   #save to db
+  # binding.pry
   @booking.save()
   erb(:create)
 end
 
 get '/booking' do
-  @booking = Booking.all()
+  @bookings = Booking.all()
   erb(:index)
 end

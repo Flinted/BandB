@@ -1,0 +1,10 @@
+<%= @booking.pretty_name() %>
+<hr>
+<!-- <%= @booking.total() %> -->
+
+<p> You are booked in for <%= @booking.nights() %> nights for a total cost of £<%= @booking.total() %></p>
+<% if @booking.breakfast == 'true' %>
+<hr>
+<b>Breakfast is included at £10 per night.</b>
+<%end%>
+

@@ -1,4 +1,5 @@
 require ('pg')
+require('pry-byebug')
 
 class Booking
 
@@ -19,10 +20,24 @@ class Booking
   end
 
   def total()
-    return @nights * 50
+    # binding.pry
+    room = (@nights * 50) 
+    breakfast = 0
+    breakfast = @breakfast == "true" || @breakfast == "t" ? @nights * 10 : 0
+    total = room + breakfast
+    return total
   end
 
+  def reorder_date
+      # binding.pry
+      result = @check_in.split ("-") 
+      new_date = "#{result[0]}-#{result[1]}-#{result[2]}"
+      @check_in = new_date
+  end
+
+
   def save()
+    reorder_date()
     db = PG.connect({dbname: 'BandB', host: 'localhost'})
     sql = "INSERT INTO bookings (
         first_name, 
@@ -35,9 +50,9 @@ class Booking
         '#{@first_name}',
         '#{@last_name}',
         '#{@check_in}',
-        '#{@nights}',
+        #{@nights},
         '#{@breakfast}',
-        #{@type}) 
+        '#{@type}') 
       RETURNING *"
     booking_data = db.exec(sql)
     db.close()
@@ -49,7 +64,7 @@ class Booking
     sql= "SELECT * FROM bookings"
     bookings = db.exec(sql)
     db.close()
-    result = bookings.map {|booking| Booking.new(pizza)}
+    result = bookings.map { |booking| Booking.new(booking)}
     return result
   end
 end

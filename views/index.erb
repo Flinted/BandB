@@ -1,0 +1,16 @@
+<h2>Current Room Bookings</h2>
+<hr>
+<!-- binding.pry -->
+<% @bookings.each do |booking| %>
+  <b>Name:</b>
+  <p><%= booking.pretty_name()%></p>
+  <b>Order:</b>
+  <p><%= booking.nights()%> nights in a <%= booking.type%> room.</p>
+  <p>Total cost of booking: £<%= booking.total%></p>
+
+  <% if booking.breakfast == 't' %>
+  <hr>
+  <b>Breakfast is included at £10 per night.</b>
+  <%end%>
+  <hr>
+<%end%>

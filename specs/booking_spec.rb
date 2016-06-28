@@ -10,7 +10,7 @@ class TestBooking < MiniTest::Test
         'last_name' => 'Goncalves', 
         'nights' => '3', 
         'check_in' => '10',
-        'breakfast' => 'Yes',
+        'breakfast' => 'true',
         'type' => 'single'
       }
       @booking = Booking.new( options )
@@ -33,11 +33,11 @@ class TestBooking < MiniTest::Test
   end
 
   def test_breakfast()      
-    assert_equal( 'Yes', @booking.breakfast() )
+    assert_equal( 'true', @booking.breakfast() )
   end
 
   def test_total()
-    assert_equal(150,@booking.total())
+    assert_equal(180,@booking.total())
   end
 
   def test_type()

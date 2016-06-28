@@ -5,7 +5,7 @@
   <input type="text" name="first_name">
   <label for="last_name">Last Name:</label>
   <input type="text" name="last_name">
-<br>
+<hr>
 <label for="type">Select Room type:</label>
 <select name="type">
   <option value="Single">Single</option>
@@ -14,15 +14,18 @@
   <option value="Suite">Suite</option>
   <option value="By_the_hour_room">Room for an hour...</option>
 </select>
-<hr>
-<label for="breakfast">Would you like breakfast?:</label>
-<select name="breakfast">
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
+<label for="check_in">Check In Date:</label>
+<input type="date" name="check_in" min= "2016-06-28"> 
 
 <label for="nights">Nights:</label>
 <input type="number" name="nights">
-<Hr>
+<hr>
+<label for="breakfast">Would you like breakfast?:</label>
+  <input type="radio" name="breakfast" value="true"> Yes
+  <input type="radio" name="breakfast" value="false"> No
+
+
+
+<hr>
 <input type='submit' value="Submit Booking">
 </form>
