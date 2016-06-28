@@ -1,4 +1,15 @@
 body {
-  background-color: grey;
+  /*background-color: lightgrey*/
   background-image: url('dark-leather.png');
+  font-family: sans-serif;
+  text-align: center;
 }
+
+p{
+  font-family: sans-serif;
+}
+
+b{
+  font-family: sans-serif;
+}
+
